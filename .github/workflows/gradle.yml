@@ -53,5 +53,5 @@ jobs:
         aws deploy push \
           --application-name ${{ secrets.CODEDEPLOY_APPLICATION_NAME }} \
           --ignore-hidden-files \
-          --s3-location s3: //$secrets.S3_BUCKET/$GITHUB_SHA.zip \
+          --s3-location s3://$secrets.S3_BUCKET/$GITHUB_SHA.zip \
           --source .
