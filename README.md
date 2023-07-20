@@ -46,4 +46,4 @@
    - wget https://aws-codedeploy-ap-northeast-2.s3.ap-northeast-2.amazonaws.com/latest/install
 
 
-11. Git 프로젝트에서 Scripts > stop, start bash 파일 만들기
+11. Git 프로젝트에서 scripts > stop, start bash 파일 만들기(이클립스에서 만들면 오류나는 경우가 있음)
