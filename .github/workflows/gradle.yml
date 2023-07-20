@@ -23,6 +23,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    # name 은 주석 느낌으로, 별로 중요하지 않음: 아래의 name 도 마찬가지
     - name: Set up JDK 17
       uses: actions/setup-java@v3
       with:
@@ -34,3 +35,19 @@ jobs:
       uses: gradle/gradle-build-action@v2 # v2.6.0
       with:
         arguments: build
+    # AWS에 외부 접속하기 위한 IAM user 등록
+    - name: Configure AWS 
+      uses: aws-actions/configure-aws-credentials@v1-node16
+      with: 
+        # 오른쪽 값은 Settings 의 secret repository에 있는 값을 가져오는 것
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_REGION }}
+    # 빌드 결과물을 S3 버킷에 업로드
+    - name: Upload to AWS S3
+      run: |
+        aws deploy push \
+          --application-name ${{ secrets.CODEDEPLOY_APPLICATION_NAME }} \
+          --ignore-hidden-files \
+          --s3-location s3: ${{ secrets.S3_BUCKET }}/$GITHUB_SHA.zip \
+          --source .
