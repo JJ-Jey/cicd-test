@@ -1,5 +1,10 @@
 # cicd-test
 
+
+## CI/CD 과정
+### 이클립스 -> github로 push  -> Actions에서 자동으로 build 진행 -> S3로 업로드 -> Code Deploy에서 이벤트 캐치 후 EC2로 업로드 -> scripts 폴더의 stop, start 실행하여 자동 배포
+
+
 1. 프로젝트 github actions 설정: java with gradle 설정에서 gradlew 권한 부여하기, java version 확인하기, build version 확인하기
   - name: gradlew #이름은 중요하지 않음 (주석 느낌)
     run: chmod +x gradlew #gradle 권한 부여
