@@ -5,6 +5,6 @@ DATE=`date +"[%Y-%m-%d %H:%M:%S]"`
 DEPOLY_FILE="cicd-test-0.0.1-SNAPSHOT.jar"
 
 #jar 시작
-java -jar $DEPOLY_FILE
+nohup java -jar ~/src/deploy/build/libs/$DEPOLY_FILE &
 echo "$DATE : TOMCAT을 시작합니다." >> $DEPLOY_LOG
 echo "###################################################" >> $DEPLOY_LOG
