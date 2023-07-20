@@ -12,7 +12,7 @@
   - 키는 .csv 파일로 다운로드
   - 이후 git에 등록해서 S3에 접근할 수 있도록 하기
   - 역할 만들기: 다른 AWS 서비스의 사용 사례에서 CodeDeploy 선택
-  - EC2에서 보안 - IAM 역할 들어가서 
+  - EC2에서 보안 - IAM 역할 들어가서 새로운 역할 부여하기: EC2 - S3FULLACCESS 권한 부여해서 새로운 ROLE 만들기
 
 
 4. S3 버킷 생성(버킷 이름: my.codedeploy.bucket)
@@ -45,3 +45,5 @@
 10. EC2에 에이전트 설치하기: https://docs.aws.amazon.com/ko_kr/codedeploy/latest/userguide/codedeploy-agent-operations-install-linux.html
    - wget https://aws-codedeploy-ap-northeast-2.s3.ap-northeast-2.amazonaws.com/latest/install
 
+
+11. Git 프로젝트에서 Scripts > stop, start bash 파일 만들기
