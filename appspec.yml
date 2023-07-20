@@ -15,6 +15,6 @@ hooks:
     - location: scripts/stop
       timeout: 60
       
-#  ApplicationStart:
-#    - location: scripts/start
-#      timeout: 60
+  ApplicationStart:
+    - location: scripts/start
+      timeout: 60
