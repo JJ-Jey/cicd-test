@@ -1,0 +1,20 @@
+#!/bin/bash
+
+DEPLOY_LOG="./deploy.log"
+DATE=`date +"[%Y-%m-%d %H:%M:%S]"`
+DEPOLY_FILE="cicd-test-0.0.1-SNAPSHOT.jar"
+
+#jar pid 확인
+JAR_PID=`ps -ef | grep $DEPOLY_FILE | grep -v grep | awk '{print $2}'`
+
+#process count
+JAR_CNT=`ps -ef | grep $DEPOLY_FILE | grep -v grep | wc -l`
+
+if [ $JAR_CNT -gt 0 ]
+then
+        #jar 종료
+        sudo kill -TERM $JAR_PID
+        echo "$DATE : 프로그램을 종료합니다. - (PID : $JAR_PID)" >> $DEPLOY_LOG
+else
+        echo "$DATE : 실행중인 프로그램이 없습니다. " >> $DEPLOY_LOG
+fi
