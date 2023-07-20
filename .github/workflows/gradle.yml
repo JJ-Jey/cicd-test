@@ -13,6 +13,7 @@ on:
   pull_request:
     branches: [ "master" ]
 
+# 변수 만들기: 지금은 굳이 필요없음
 env:
   S3_LOCATION_BUCKET: ${{ secrets.S3_BUCKET }}
 
