@@ -26,4 +26,10 @@
    - 로드 밸런서는 일단 하지 않음: 도메인 주소 필요(유료), https 인증서 필요
 
 
-7. 
+7. GitHub에서 Repository - Settings - Secrets and variables - Actions - New repository secret
+   - AWS_ACCESS_KEY_ID: .csv 파일에서 가져오기
+   - AWS_SECRET_ACCESS_KEY: .csv 파일에서 가져오기
+   - AWS_REGION: ap-northeast-2
+   - S3_BUCKET: my.codedeploy.bucket
+   - CODEDEPLOY_APPLICATION_NAME: MyCodeDeploy
+   - CODEDEPLOY_DEPLOYMENT_GROUP_NAME: MyCodeDeployGroup
