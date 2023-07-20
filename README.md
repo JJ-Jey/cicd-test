@@ -12,6 +12,7 @@
   - 키는 .csv 파일로 다운로드
   - 이후 git에 등록해서 S3에 접근할 수 있도록 하기
   - 역할 만들기: 다른 AWS 서비스의 사용 사례에서 CodeDeploy 선택
+  - EC2에서 보안 - IAM 역할 들어가서 
 
 
 4. S3 버킷 생성(버킷 이름: my.codedeploy.bucket)
@@ -33,3 +34,14 @@
    - S3_BUCKET: my.codedeploy.bucket
    - CODEDEPLOY_APPLICATION_NAME: MyCodeDeploy
    - CODEDEPLOY_DEPLOYMENT_GROUP_NAME: MyCodeDeployGroup
+
+
+8. workflows에서 Configure AWS, Upload to AWS 세팅하기(build 이후 부분)
+
+
+9. 프로젝트에 appspec.yml 삽입하기
+
+
+10. EC2에 에이전트 설치하기: https://docs.aws.amazon.com/ko_kr/codedeploy/latest/userguide/codedeploy-agent-operations-install-linux.html
+   - wget https://aws-codedeploy-ap-northeast-2.s3.ap-northeast-2.amazonaws.com/latest/install
+
